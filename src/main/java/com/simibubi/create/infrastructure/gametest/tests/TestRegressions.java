@@ -84,7 +84,8 @@ public class TestRegressions {
 			CollisionResponse result = ContinuousOBBCollider.collideMany(colliders, scratch, obb,
 				Vec3.ZERO, item.maxUpStep(), true);
 			assertFiniteCollision(helper, result);
-			helper.assertTrue(result.collisionResponse.dot(offset) > 0, "Overlap must push the item outwards");
+			helper.assertTrue(result.collisionResponse.dot(offset) > 0,
+				"Overlap must push the item outwards on " + direction + "; got " + result.collisionResponse);
 			helper.assertTrue(Math.abs(result.collisionResponse.length() - .1251001) < 1E-6,
 				"Offset item must retain its ordinary separation response");
 		}

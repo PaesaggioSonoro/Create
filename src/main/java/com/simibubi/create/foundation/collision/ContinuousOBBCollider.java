@@ -301,8 +301,9 @@ public class ContinuousOBBCollider {
 
 		public void reset() {
 			// Reset the manifold.
-			this.axis = null;
-			this.normalAxis = null;
+			// Coincident centers have no preferred separation direction.
+			this.axis = Vec3.ZERO;
+			this.normalAxis = Vec3.ZERO;
 			this.separation = Double.MAX_VALUE;
 			this.stepSeparation = Double.MAX_VALUE;
 			this.normalSeparation = Double.MAX_VALUE;
